@@ -23,10 +23,6 @@
                   </div>
                   <div class="divider"></div>
                </div>
-               <div>
-                <button id="button_add_money" class="btn btn-lg">Add Money</button>
-                <button id="button_cash_out" class="btn btn-lg">Cashout</button>
-               </div>
                <div class="divider"></div>
                 <div id="add_money_form" class="w-full">
                     <form class="card-body">
@@ -46,80 +42,15 @@
                           </label>
                         </div>
                         <div class="form-control mt-6">
-                          <button id="btn_add_money" class="btn btn-primary">Add Money</button>
+                          <button id="btn_login" class="btn btn-primary">Login</button>
                         </div>
                       </form>
                 </div>
-                <!-- cashout form -->
-                <div id="cashout_form" class="hidden w-full">
-                  <form class="card-body">
-                      <div class="form-control">
-                        <label class="label">
-                          <span class="label-text">Email</span>
-                        </label>
-                        <input id="cashout_amount_number" type="text" placeholder="email" class="input input-bordered" required />
-                      </div>
-                      <div class="form-control">
-                        <label class="label">
-                          <span class="label-text">Password</span>
-                        </label>
-                        <input id="cashout_pins_number" type="password" placeholder="password" class="input input-bordered" required />
-                        <label class="label">
-                          <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
-                        </label>
-                      </div>
-                      <div class="form-control mt-6">
-                        <button id="btn_cashout_money" class="btn btn-primary">Cash out</button>
-                      </div>
-                    </form>
-              </div>
+          
               </div>
             </div>
           </div>
     </main>
-    <script>
-      document.getElementById('button_cash_out').addEventListener('click',function(){
-        document.getElementById('cashout_form').classList.remove('hidden');
-        document.getElementById('add_money_form').classList.add('hidden');
-      })
-      document.getElementById('button_add_money').addEventListener('click',function(){
-        document.getElementById('add_money_form').classList.remove('hidden');
-        document.getElementById('cashout_form').classList.add('hidden');
-      })
-   
-        document.getElementById('btn_add_money').addEventListener('click',function(event){
-            event.preventDefault();
-            const amount=document.getElementById('amount_number').value;
-            const pin=document.getElementById('pins_number').value;
-         if(pin==='1234'){
-          const currentBalance=document.getElementById('current_balance').innerText;
-          const cBalance=parseFloat(currentBalance);
-          const amounts=parseFloat(amount);
-            const totalBalance=amounts+cBalance;
-            document.getElementById('current_balance').innerText=totalBalance;
-
-         }
-         else{
-          console.log('wrong')
-         }
-
-        })
-      document.getElementById('btn_cashout_money').addEventListener('click',function(event){
-        event.preventDefault();
-        const camount=document.getElementById('cashout_amount_number').value;
-        const cpin=document.getElementById('cashout_pins_number').value;
-        if(cpin==='1234' && currentBalance !=0){
-          const currentBalance=document.getElementById('current_balance').innerText;
-          const cashoutBalance=parseFloat(currentBalance);
-          const cashoutAmounts=parseFloat(camount);
-          const cashoutTotal=cashoutBalance-cashoutAmounts;
-          document.getElementById('current_balance').innerText=cashoutTotal;
-        }
-        else{
-          alert('Wrong Credintials');
-        }
-
-      })
-    </script>
+  <script src="login.js"></script>
 </body>
 </html>
